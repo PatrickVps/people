@@ -1,4 +1,4 @@
-package com.people.people;
+package com.people.trombinoscope;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
