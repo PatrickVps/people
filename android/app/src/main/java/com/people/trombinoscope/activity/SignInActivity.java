@@ -47,7 +47,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         ButterKnife.bind(this);
 
@@ -69,7 +69,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
 
         // Set the dimensions of the sign-in button.
         signInButton.setSize(SignInButton.SIZE_STANDARD);
-        // [END customize_button]
+
     }
 
     @Override
@@ -114,12 +114,11 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
             mStatusTextView.setText(acct.getDisplayName());
-            updateUI(true);
+//            updateUI(true);
 
-//            Intent i = new Intent(this, HomeActivity.class);
-//            startActivity(i);
-//
-//            finish();
+            Intent i = new Intent(this, HomeActivity.class);
+            startActivity(i);
+
         } else {
             // Signed out, show unauthenticated UI.
             updateUI(false);
