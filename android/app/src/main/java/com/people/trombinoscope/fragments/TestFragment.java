@@ -1,4 +1,4 @@
-package com.people.trombinoscope.activity;
+package com.people.trombinoscope.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

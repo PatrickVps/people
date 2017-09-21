@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.people.trombinoscope.R;
 import com.people.trombinoscope.adapter.FragmentAdapter;
+import com.people.trombinoscope.fragments.FeedFragment;
+import com.people.trombinoscope.fragments.TestFragment;
+import com.people.trombinoscope.fragments.dummy.DummyContent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +22,7 @@ import devlight.io.library.ntb.NavigationTabBar;
 /**
  * Created by patrickvongpraseuth on 21/09/2017.
  */
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements IOnListFragmentInteractionListener {
 
     @BindView(R.id.ntb_horizontal)
     NavigationTabBar navigationTabBar;
@@ -38,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // Ajout des Fragments dans la liste
         fragments.add(Fragment.instantiate(this, TestFragment.class.getName()));
-        fragments.add(Fragment.instantiate(this, TestFragment.class.getName()));
+        fragments.add(Fragment.instantiate(this, FeedFragment.class.getName()));
         fragments.add(Fragment.instantiate(this, TestFragment.class.getName()));
 
         viewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager(), fragments));
@@ -99,5 +102,10 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         }, 500);
+    }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
     }
 }
