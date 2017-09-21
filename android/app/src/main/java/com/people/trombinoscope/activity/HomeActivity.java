@@ -1,5 +1,6 @@
 package com.people.trombinoscope.activity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.people.trombinoscope.R;
 import com.people.trombinoscope.adapter.FragmentAdapter;
 import com.people.trombinoscope.fragments.FeedFragment;
+import com.people.trombinoscope.fragments.ProfileFragment;
 import com.people.trombinoscope.fragments.TestFragment;
 import com.people.trombinoscope.fragments.dummy.DummyContent;
 
@@ -22,7 +24,7 @@ import devlight.io.library.ntb.NavigationTabBar;
 /**
  * Created by patrickvongpraseuth on 21/09/2017.
  */
-public class HomeActivity extends AppCompatActivity implements IOnListFragmentInteractionListener {
+public class HomeActivity extends AppCompatActivity implements IOnListFragmentInteractionListener, IOnFragmentInteractionListener {
 
     @BindView(R.id.ntb_horizontal)
     NavigationTabBar navigationTabBar;
@@ -42,7 +44,7 @@ public class HomeActivity extends AppCompatActivity implements IOnListFragmentIn
         // Ajout des Fragments dans la liste
         fragments.add(Fragment.instantiate(this, TestFragment.class.getName()));
         fragments.add(Fragment.instantiate(this, FeedFragment.class.getName()));
-        fragments.add(Fragment.instantiate(this, TestFragment.class.getName()));
+        fragments.add(Fragment.instantiate(this, ProfileFragment.class.getName()));
 
         viewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager(), fragments));
 
@@ -52,7 +54,7 @@ public class HomeActivity extends AppCompatActivity implements IOnListFragmentIn
                         getResources().getDrawable(R.drawable.star),
                         getResources().getColor(R.color.colorAccent))
 //                        .selectedIcon(getResources().getDrawable(R.drawable.star))
-                        .title("Favorites")
+                        .title("Favoris")
 //                        .badgeTitle("NTB")
                         .build()
         );
@@ -106,6 +108,11 @@ public class HomeActivity extends AppCompatActivity implements IOnListFragmentIn
 
     @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item) {
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
     }
 }
