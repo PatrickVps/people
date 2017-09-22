@@ -11,7 +11,7 @@ import com.people.trombinoscope.R;
 /**
  * Created by patrickvongpraseuth on 21/09/2017.
  */
-public class TestFragment extends Fragment {
+public class FavoriteFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

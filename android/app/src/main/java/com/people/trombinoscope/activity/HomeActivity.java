@@ -10,7 +10,7 @@ import com.people.trombinoscope.R;
 import com.people.trombinoscope.adapter.FragmentAdapter;
 import com.people.trombinoscope.fragments.FeedFragment;
 import com.people.trombinoscope.fragments.ProfileFragment;
-import com.people.trombinoscope.fragments.TestFragment;
+import com.people.trombinoscope.fragments.FavoriteFragment;
 import com.people.trombinoscope.fragments.dummy.DummyContent;
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class HomeActivity extends AppCompatActivity implements IOnListFragmentIn
         List fragments = new Vector();
 
         // Ajout des Fragments dans la liste
-        fragments.add(Fragment.instantiate(this, TestFragment.class.getName()));
+        fragments.add(Fragment.instantiate(this, FavoriteFragment.class.getName()));
         fragments.add(Fragment.instantiate(this, FeedFragment.class.getName()));
         fragments.add(Fragment.instantiate(this, ProfileFragment.class.getName()));
 

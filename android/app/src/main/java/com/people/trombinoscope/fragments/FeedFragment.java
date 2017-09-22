@@ -14,6 +14,8 @@ import com.people.trombinoscope.activity.IOnListFragmentInteractionListener;
 import com.people.trombinoscope.adapter.FeedRecyclerViewAdapter;
 import com.people.trombinoscope.fragments.dummy.DummyContent;
 
+import butterknife.ButterKnife;
+
 /**
  * A fragment representing a list of Items.
  * <p/>
@@ -59,6 +61,9 @@ public class FeedFragment extends Fragment {
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
             recyclerView.setAdapter(new FeedRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
+
+        ButterKnife.bind(this, view);
+
         return view;
     }
 
