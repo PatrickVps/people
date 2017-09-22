@@ -6,7 +6,7 @@ android {
     defaultConfig {
         applicationId "com.people.trombinoscope"
         minSdkVersion 19
-        targetSdkVersion 26
+        targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -17,6 +17,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+        prod {
+            buildConfigField 'String', 'STORAGE_URL', '"gs://people-636bb.appspot.com"'
+        }
+    }
 }
 
 dependencies {
@@ -25,13 +31,14 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    compile 'com.google.firebase:firebase-core:11.4.0'
+    compile 'com.google.firebase:firebase-auth:11.4.0'
+    compile 'com.google.firebase:firebase-storage:11.4.0'
 
 
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     compile 'com.android.support:design:26.0.0-alpha1'
     compile 'com.jakewharton:butterknife:8.8.1'
-    compile 'com.google.firebase:firebase-core:11.4.0'
-    compile 'com.google.firebase:firebase-auth:11.4.0'
     compile 'com.google.android.gms:play-services-auth:11.4.0'
     compile 'devlight.io:navigationtabbar:1.2.5'
     compile 'com.android.support:support-v4:26.0.0-alpha1'
